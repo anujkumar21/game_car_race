@@ -1,2 +1,2 @@
-# game_car_race
+# Game Car Race in Python
 Game Car Race in Python
