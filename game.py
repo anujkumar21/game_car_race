@@ -1,7 +1,7 @@
 """ 
 @author: Anuj Kumar
 @email: cdac.anuj@gmail.com
-@date: 
+@date: 29th-July-2018
 """
 import random
 from time import sleep
@@ -33,7 +33,7 @@ class CarRacing:
 
         # enemy_car
         self.enemy_car = pygame.image.load('.\\img\\enemy_car_1.png')
-        self.enemy_car_startx = random.randrange(310, 550)
+        self.enemy_car_startx = random.randrange(310, 450)
         self.enemy_car_starty = -600
         self.enemy_car_speed = 5
         self.enemy_car_width = 49
