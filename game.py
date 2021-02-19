@@ -67,17 +67,17 @@ class CarRacing:
                     self.crashed = True
                 # print(event)
 
-                if (event.type == pygame.KEYDOWN):
-                    if (event.key == pygame.K_LEFT):
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
                         self.car_x_coordinate -= 50
                         print "CAR X COORDINATES: %s" % self.car_x_coordinate
-                    if (event.key == pygame.K_RIGHT):
+                    if event.key == pygame.K_RIGHT:
                         self.car_x_coordinate += 50
                         print "CAR X COORDINATES: %s" % self.car_x_coordinate
                     print ("x: {x}, y: {y}".format(x=self.car_x_coordinate, y=self.car_y_coordinate))
 
             self.gameDisplay.fill(self.black)
-            self.back_ground_raod()
+            self.back_ground_road()
 
             self.run_enemy_car(self.enemy_car_startx, self.enemy_car_starty)
             self.enemy_car_starty += self.enemy_car_speed
@@ -89,7 +89,7 @@ class CarRacing:
             self.car(self.car_x_coordinate, self.car_y_coordinate)
             self.highscore(self.count)
             self.count += 1
-            if (self.count % 100 == 0):
+            if self.count % 100 == 0:
                 self.enemy_car_speed += 1
                 self.bg_speed += 1
 
@@ -116,7 +116,7 @@ class CarRacing:
         car_racing.initialize()
         car_racing.racing_window()
 
-    def back_ground_raod(self):
+    def back_ground_road(self):
         self.gameDisplay.blit(self.bgImg, (self.bg_x1, self.bg_y1))
         self.gameDisplay.blit(self.bgImg, (self.bg_x2, self.bg_y2))
 
