@@ -7,6 +7,7 @@ import random
 from time import sleep
 
 import pygame
+from pathlib2 import Path
 
 
 class CarRacing:
@@ -19,6 +20,7 @@ class CarRacing:
         self.white = (255, 255, 255)
         self.clock = pygame.time.Clock()
         self.gameDisplay = None
+        self.root_path = str(Path(__file__).parent)
 
         self.initialize()
 
@@ -26,13 +28,13 @@ class CarRacing:
 
         self.crashed = False
 
-        self.carImg = pygame.image.load('.\\img\\car.png')
+        self.carImg = pygame.image.load(self.root_path + "/img/car.png")
         self.car_x_coordinate = (self.display_width * 0.45)
         self.car_y_coordinate = (self.display_height * 0.8)
         self.car_width = 49
 
         # enemy_car
-        self.enemy_car = pygame.image.load('.\\img\\enemy_car_1.png')
+        self.enemy_car = pygame.image.load(self.root_path + "/img/enemy_car_1.png")
         self.enemy_car_startx = random.randrange(310, 450)
         self.enemy_car_starty = -600
         self.enemy_car_speed = 5
@@ -40,7 +42,7 @@ class CarRacing:
         self.enemy_car_height = 100
 
         # Background
-        self.bgImg = pygame.image.load(".\\img\\back_ground.jpg")
+        self.bgImg = pygame.image.load(self.root_path + "/img/back_ground.jpg")
         self.bg_x1 = (self.display_width / 2) - (360 / 2)
         self.bg_x2 = (self.display_width / 2) - (360 / 2)
         self.bg_y1 = 0
