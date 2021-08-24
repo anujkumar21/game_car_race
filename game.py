@@ -7,8 +7,7 @@ import random
 from time import sleep
 
 import pygame
-from pathlib2 import Path
-
+import os
 
 class CarRacing:
     def __init__(self):
@@ -20,7 +19,9 @@ class CarRacing:
         self.white = (255, 255, 255)
         self.clock = pygame.time.Clock()
         self.gameDisplay = None
-        self.root_path = str(Path(__file__).parent)
+        self.root_path = os.path.dirname(os.path.realpath(__file__))
+
+        self.quit_game = False
 
         self.initialize()
 
@@ -60,7 +61,7 @@ class CarRacing:
 
     def run_car(self):
 
-        while not self.crashed:
+        while not self.quit_game:
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -70,10 +71,12 @@ class CarRacing:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
                         self.car_x_coordinate -= 50
-                        print "CAR X COORDINATES: %s" % self.car_x_coordinate
+                        print ("CAR X COORDINATES: %s" % self.car_x_coordinate)
                     if event.key == pygame.K_RIGHT:
                         self.car_x_coordinate += 50
-                        print "CAR X COORDINATES: %s" % self.car_x_coordinate
+                        print ("CAR X COORDINATES: %s" % self.car_x_coordinate)
+                    if event.key == pygame.K_ESCAPE:
+                            self.quit_game = True
                     print ("x: {x}, y: {y}".format(x=self.car_x_coordinate, y=self.car_y_coordinate))
 
             self.gameDisplay.fill(self.black)
@@ -124,10 +127,10 @@ class CarRacing:
         self.bg_y2 += self.bg_speed
 
         if self.bg_y1 >= self.display_height:
-            self.bg_y1 = -600
+            self.bg_y1 = self.bg_y2 - 600
 
         if self.bg_y2 >= self.display_height:
-            self.bg_y2 = -600
+            self.bg_y2 = self.bg_y1 - 600
 
     def run_enemy_car(self, thingx, thingy):
         self.gameDisplay.blit(self.enemy_car, (thingx, thingy))
