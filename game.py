@@ -70,11 +70,11 @@ class CarRacing:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
                         self.car_x_coordinate -= 50
-                        print "CAR X COORDINATES: %s" % self.car_x_coordinate
+                        print("CAR X COORDINATES: %s" % self.car_x_coordinate)
                     if event.key == pygame.K_RIGHT:
                         self.car_x_coordinate += 50
-                        print "CAR X COORDINATES: %s" % self.car_x_coordinate
-                    print ("x: {x}, y: {y}".format(x=self.car_x_coordinate, y=self.car_y_coordinate))
+                        print("CAR X COORDINATES: %s" % self.car_x_coordinate)
+                    print("x: {x}, y: {y}".format(x=self.car_x_coordinate, y=self.car_y_coordinate))
 
             self.gameDisplay.fill(self.black)
             self.back_ground_road()
